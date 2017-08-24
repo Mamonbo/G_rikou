@@ -3,13 +3,13 @@
 
 * これなんですの?
 実況用twitterクライアント
-[https://github.com/ymduu/G_rikou][グローバル理工兄弟]
+[[https://github.com/ymduu/G_rikou][グローバル理工兄弟]]
 の
-[https://github.com/tootsuite/mastodon][mastodon]
+[[https://github.com/tootsuite/mastodon][mastodon]]
 版
 
 * Requirements
 + python
   3を想定しております(当たり前だよなあ)
-+ [https://github.com/halcy/Mastodon.py][Mastodon.py]
++ [[https://github.com/halcy/Mastodon.py][Mastodon.py]]
   導入については、本家参照
