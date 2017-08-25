@@ -9,7 +9,7 @@ import os
 import webbrowser
 import wx
 
-exit(0)
+
 
 #.rstrip("\n")
 sys.stdout = codecs.getwriter('utf_8')(sys.stdout)

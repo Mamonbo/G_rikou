@@ -11,7 +11,8 @@ import oath
 import os
 import os.path
 from PIL import Image
-exit(0)
+
+
 
 #sys.stdout = codecs.getwriter("utf-8")(sys.stdout)
 otaku1exist=os.path.exists("./otaku1.txt")

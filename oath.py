@@ -11,7 +11,7 @@ import urllib
 import os.path
 from PIL import Image
 
-exit(0)
+
 
 #.rstrip("\n")
 sys.stdout = codecs.getwriter('utf_8')(sys.stdout)
