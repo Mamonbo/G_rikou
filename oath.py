@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #last update:2014/10/10
 
-import tweepy
+#import tweepy
 import sys
 import codecs
 import os

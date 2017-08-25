@@ -3,7 +3,7 @@
 #last update:2014/10/10
 
 import wx
-import tweepy
+#import tweepy
 tag_array1=[]
 tag_array2=[]
 import sys, codecs
