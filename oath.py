@@ -9,7 +9,7 @@ import webbrowser
 import wx
 import urllib
 import os.path
-import Image
+from PIL import Image
 
 exit(0)
 
