@@ -13,3 +13,13 @@
   3を想定しております(当たり前だよなあ)
 ** [[https://github.com/halcy/Mastodon.py][Mastodon.py]]
   導入については、本家参照
+** wxPython
+   PyPIにて入手可能
+   
+   ~pip install wxpython~
+** Pillow
+   こちらもPyPIにて入手可能
+
+   PILはpython 2にしか無いのでPillowを使います
+
+   ~pip install pillow~
