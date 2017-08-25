@@ -26,7 +26,7 @@ text = wx.TextCtrl(panel,wx.ID_ANY,u"ブラウザに表示されるPIN番号を�
 def pinsend(event):
     global Verifier
     Verifier=text.GetValue()
-    print text.GetValue()
+    print(text.GetValue())
     wx.Exit()
     frame.Destroy()
     #Close()
@@ -41,10 +41,10 @@ def oath(CK,CS):
     if access==False:
         try:
             redirect_url = auth.get_authorization_url()
-            print "Redirect URL: " + redirect_url
+            print("Redirect URL: " + redirect_url)
             webbrowser.open(redirect_url)
         except tweepy.TweepError:
-            print "Error! Failed to get request token."
+            print("Error! Failed to get request token.")
 
     # Example w/o callback (desktop)
     #verifier = raw_input("Verifier: ")
@@ -64,7 +64,7 @@ def oath(CK,CS):
         
         
 #-----------------------------------------------GUIいじり2-------------------------------------------------------------------------------
-        print Verifier
+        print(Verifier)
         auth.get_access_token(Verifier)
         
         key=auth.access_token.key
@@ -72,13 +72,13 @@ def oath(CK,CS):
         f.write(key.encode('base64'))
         f.close()
         key = auth.access_token.key
-        print "OAuth access token (key): " + key
+        print("OAuth access token (key): " + key)
 
         secret = auth.access_token.secret
         f = open("access.txt", "a")
         f.write(secret.encode('base64'))
         f.close()
-        print "OAuth access token (secret): " + secret
+        print("OAuth access token (secret): " + secret)
     else:
         f = open("access.txt","r")
         line=f.readlines()

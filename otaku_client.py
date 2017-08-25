@@ -102,7 +102,7 @@ def add1(event):
     
     f = open( "otaku1.txt", "a" )
     add=combobox_1.GetValue()#.GetValue()で現在のcomboboxの値を取得可能
-    print add
+    print(add)
     try:
         
         # 文字列を出力
@@ -120,7 +120,7 @@ def add2(event):
     f = open( "otaku2.txt", "a" )
     add=combobox_2.GetValue()#.GetValue()で現在のcomboboxの値を取得可能
     #add=add.encode('utf_8')
-    print add
+    print(add)
     #print type(add_)
     try:
         
