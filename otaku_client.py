@@ -11,6 +11,8 @@ import oath
 import os
 import os.path
 import Image
+exit(0)
+
 #sys.stdout = codecs.getwriter("utf-8")(sys.stdout)
 otaku1exist=os.path.exists("./otaku1.txt")
 otaku2exist=os.path.exists("./otaku2.txt")

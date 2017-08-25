@@ -10,6 +10,9 @@ import wx
 import urllib
 import os.path
 import Image
+
+exit(0)
+
 #.rstrip("\n")
 sys.stdout = codecs.getwriter('utf_8')(sys.stdout)
 global Verifier
