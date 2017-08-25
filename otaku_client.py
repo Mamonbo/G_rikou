@@ -10,7 +10,7 @@ import sys, codecs
 import oath
 import os
 import os.path
-import Image
+from PIL import Image
 exit(0)
 
 #sys.stdout = codecs.getwriter("utf-8")(sys.stdout)
