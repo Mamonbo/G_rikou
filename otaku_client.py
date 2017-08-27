@@ -15,7 +15,7 @@ from PIL import Image
 import json
 
 
-
+# SOMEDAY 使用している場所を見て適切なファイル名に変更する
 #sys.stdout = codecs.getwriter("utf-8")(sys.stdout)
 otaku1exist=os.path.exists("./otaku1.txt")
 otaku2exist=os.path.exists("./otaku2.txt")
@@ -93,14 +93,20 @@ if __name__ == "__main__":
 
 #--------------------------関数群定義-------------------------------
 def post_event(event):
+    # toot する
     bun=toukou.GetValue()
+    # tag1:番組名を入れる欄
     tag1=combobox_1.GetValue()
+    # tag2:テレビ局名を入れる欄
     tag2=combobox_2.GetValue()
     try:        
         api.update_status(bun+" "+tag1.rstrip("\n") +" "+tag2)
         toukou.Clear()
     except:
-        frame.SetStatusText(u"投稿失敗:"+bun+" "+tag1.rstrip("\n") +" "+tag2)
+        frame.SetStatusText(u"投稿失敗:"+bun+" "+tag1.rstrip("\n") +"
+        "+tag2)
+
+        
 def OnKeyChar(event):
     key = event.GetKeyCode()
     if key  ==  wx.WXK_RETURN and checkbox.GetValue():
