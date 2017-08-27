@@ -108,7 +108,10 @@ def post_event(event):
 
         
 def OnKeyChar(event):
+    #キーを押す毎に呼び出される?
     key = event.GetKeyCode()
+    #実況性を高めるために、Enter キー押下で投稿
+    #("Enterキーで投稿する" のチェックが付いているときのみ)
     if key  ==  wx.WXK_RETURN and checkbox.GetValue():
         post_event(event)
 
