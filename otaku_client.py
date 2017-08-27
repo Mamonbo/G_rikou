@@ -116,40 +116,51 @@ def OnKeyChar(event):
 
 
 def add1(event):
+    #タグ1(番組名)に現在入力してある文字列をプリセットに追加
+
+    NewTag=combobox_1.GetValue()#.GetValue()で現在のcomboboxの値を取得可
+    #能
+    print(NewTag)
     
+    #ファイル書き込み
     f = open( "otaku1.txt", "a" )
-    add=combobox_1.GetValue()#.GetValue()で現在のcomboboxの値を取得可能
-    print(add)
     try:
         
-        # 文字列を出力
-        f.write( (u"\n"+add).encode('utf-8') )
+        # 文字列を追記
+        f.write( (u"\n"+NewTag).encode('utf-8') )
           
     finally:
         f.close()
     #f = open("otaku1.txt","r")
-    tag_array1.append(add)
-    combobox_1.Append(add)
+
+    #UIへ追加
+    tag_array1.append(NewTag)
+    combobox_1.Append(NewTag)
     #print "add"
 
 def add2(event):
-    
+    #タグ2(テレビ局名)に現在入力してある文字列をプリセットに追加
+    NewTag=combobox_2.GetValue()#.GetValue()で現在のcomboboxの値を取得
+    #可能
+    print(NewTag)
+
+    #ファイル書き込み
     f = open( "otaku2.txt", "a" )
-    add=combobox_2.GetValue()#.GetValue()で現在のcomboboxの値を取得可能
-    #add=add.encode('utf_8')
-    print(add)
     #print type(add_)
     try:
         
-        # 文字列を出力
-        f.write( (u"\n"+add).encode('utf-8') )
+        # 文字列を追記
+        f.write( (u"\n"+NewTag).encode('utf-8') )
           
     finally:
         f.close()
     #f = open("otaku2.txt","r")
-    tag_array2.append(add)
-    combobox_2.Append(add)
+
+    #UIへ追加
+    tag_array2.append(NewTag)
+    combobox_2.Append(NewTag)
     #print "add"
+    
 def geticon():
     os.remove("./icon.png")
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
