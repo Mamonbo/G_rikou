@@ -4,6 +4,7 @@
 
 import wx
 #import tweepy
+import mastodon
 tag_array1=[]
 tag_array2=[]
 import sys, codecs
@@ -11,6 +12,7 @@ import oath
 import os
 import os.path
 from PIL import Image
+import json
 
 
 
@@ -49,17 +51,22 @@ for row in g:
 g.close()
 
 
+# ユーザー情報を読み込む
+FilePointer=open('user.json','r')
+
+Setting=json.load(FilePointer)
+#print(Setting)
+FilePointer.close()
 
 
-#-------------------------twitterする準備------------------------------
-consumer_key = "sAp1BJJIBuCqYhWsNWNGYjxsA"
-consumer_secret = "tRV0qeUEqYWq0yiGG43lcRmujunBaRFcbjuksuEU45gjkqzG5k"
-access_key,access_secret=oath.oath(consumer_key,consumer_secret)
+# mastodon をする準備
+mstdn_handler=mastodon.Mastodon(
+    client_id='client_cred.txt',
+    access_token='user_cred.txt',
+    api_base_url=Setting['url']
+)
 
-# create OAuth handler                                                      
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)                   
-# set access token to OAuth handler                                         
-auth.set_access_token(access_key, access_secret)                            
+# old twitter
 # create API                                                                
 api = tweepy.API(auth_handler=auth)
 
