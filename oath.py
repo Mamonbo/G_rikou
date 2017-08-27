@@ -34,13 +34,20 @@ def pinsend(event):
     wx.Exit()
     frame.Destroy()
     #Close()
+    
 def download(url):
-    img = urllib.urlopen(url)
+    #url の画像をurlのbasename(拡張子無し)で保存する
+
+    #python 3にてurllib の名前空間を整理した
+    img = urllib.request.urlopen(url)
     localfile = open( os.path.basename(url), 'wb')
     localfile.write(img.read())
     img.close()
     localfile.close()
+
 def geticon(access_key,access_secret):
+    #otaku_client.py に同様の関数があった
+    #一本化する
     iconexist=os.path.exists("./icon.png")
     if iconexist:
         os.remove("./icon.png")
