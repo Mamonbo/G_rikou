@@ -83,7 +83,10 @@ if __name__ == "__main__":
     #add2_sizer=wx.GridSizer(1,1)
 
     #frame = wx.Frame(None,wx.ID_ANY,u"テストフレーム")
-    frame = wx.Frame(None,wx.ID_ANY,u"グローバル理工兄弟", style=wx.MINIMIZE_BOX | wx.SYSTEM_MENU | wx.CAPTION | wx.CLOSE_BOX | wx.CLIP_CHILDREN,size=(360,235))#デフォは横400、たて220ちょい
+    frame = wx.Frame(None,wx.ID_ANY,u"グローバル理工丼",
+                     style=wx.MINIMIZE_BOX | wx.SYSTEM_MENU | wx.CAPTION | wx.CLOSE_BOX
+                     | wx.CLIP_CHILDREN,size=(360,235))#デフォは横400、たて220ちょい
+    # Hint:mastodonは暗めの背景が多めなのでそれ系の背景色にするかも
     frame.SetBackgroundColour("#e8e8e8")
     frame.CreateStatusBar()
     frame.SetStatusText(u"ready")
