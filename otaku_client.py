@@ -165,20 +165,36 @@ def add2(event):
     #print "add"
     
 def geticon():
-    os.remove("./icon.png")
-    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-    auth.set_access_token(access_key,access_secret)
-    #api=tweepy.API(auth)
-    me=api.me()
-    iconurl=me.profile_image_url
+    #発言者のアイコンを取得し、保存する
+    
+    
+    me=mstdn_handler.account_verify_credentials()
+    iconurl=me['avatar']
+    
     iconspl=iconurl.split("/")
+    # urlの一番最後のスラッシュの後が保存するファイル名になる
     iconname=iconspl[-1]
+    # 付属の oath.py でダウンロードする
+    # iconname 拡張子無しで保存される
+    # Hint:例外処理をした方が良いかも
     oath.download(iconurl)
+
+    # 保存したファイルに合せた拡張子に変名する
+    # hoge.png.gif の様なファイル名にされている可能性があるので、
+    # ライブラリに頼った方が良い
     root, ext = os.path.splitext(iconurl)
     #print ext
-    os.rename(iconname,'icon'+ext)
+    SaveName='icon'+ext
+
+    #既にファイルがある場合は削除する
+    if os.path.exists('./'+SaveName):
+        os.remove(SaveName)
+
+    os.rename(iconname,SaveName)
     #os.remove(iconname)
+    # Hint:返すのは拡張子付きのファイル名にした方が良いのでは
     return ext
+
 def reauth(event):
     os.remove("./access.txt")
     #os.system("C:\Users\ymduu\Desktop\otaku_client_public\dist\otaku_client.exe")
