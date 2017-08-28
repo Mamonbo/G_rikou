@@ -67,7 +67,7 @@ mstdn_handler=mastodon.Mastodon(
 
 # old twitter
 # create API                                                                
-api = tweepy.API(auth_handler=auth)
+#api = tweepy.API(auth_handler=auth)
 
 if __name__ == "__main__":
     #---------------使うもの諸々定義----------------------------------------
@@ -99,11 +99,14 @@ def post_event(event):
     # tag2:テレビ局名を入れる欄
     tag2=combobox_2.GetValue()
     try:        
-        api.update_status(bun+" "+tag1.rstrip("\n") +" "+tag2)
-        toukou.Clear()
+        mstdn_handler.toot(bun+" "+tag1.rstrip("\n") +" "+tag2)
     except:
         frame.SetStatusText(u"投稿失敗:"+bun+" "+tag1.rstrip("\n") +"
         "+tag2)
+    else:
+        #上手くいったら
+        #テキストボックスを空にして次の投稿に備える
+        toukou.Clear()
 
         
 def OnKeyChar(event):
