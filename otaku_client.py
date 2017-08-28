@@ -77,7 +77,7 @@ if __name__ == "__main__":
     #---------------レイアウト定義--------------------------------------------
     layout_toukou=wx.BoxSizer(wx.VERTICAL)
     
-    post_sizer=wx.GridSizer(1,1)
+    post_sizer=wx.GridSizer(1,1,gap=wx.Size(0,0))
     #add1_sizer=wx.GridSizer(1,1)
     #add2_sizer=wx.GridSizer(1,1)
 
@@ -101,8 +101,8 @@ def post_event(event):
     try:        
         mstdn_handler.toot(bun+" "+tag1.rstrip("\n") +" "+tag2)
     except:
-        frame.SetStatusText(u"投稿失敗:"+bun+" "+tag1.rstrip("\n") +"
-        "+tag2)
+        frame.SetStatusText(u"投稿失敗:"+bun+" "+tag1.rstrip("\n") + \
+                            " "+tag2)
     else:
         #上手くいったら
         #テキストボックスを空にして次の投稿に備える
