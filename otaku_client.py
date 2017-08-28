@@ -198,18 +198,20 @@ def geticon():
     return ext
 
 def reauth(event):
+    #再起動する
     os.remove("./access.txt")
     #os.system("C:\Users\ymduu\Desktop\otaku_client_public\dist\otaku_client.exe")
-    cd=os.getcwdu()
+    #cd=os.getcwdu()
     #os.system(cd+"\otaku_client.exe")
-    os.execl(cd+u"\グローバル理工兄弟.exe","a")
+    # PID 諸々を受け継いでコマンドを実行
+    os.execl('python','otaku_client.py','a')
 
     #sys.exit()
 
 
 
 
-                
+
 
 
 
