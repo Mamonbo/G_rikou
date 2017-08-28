@@ -20,33 +20,32 @@ import json
 otaku1exist=os.path.exists("./otaku1.txt")
 otaku2exist=os.path.exists("./otaku2.txt")
 
-if otaku1exist:
-    f = open("otaku1.txt","r")
-else:
-    f = open("otaku1.txt","w")
-    f.write("\n")
-    
+if not otaku1exist:
+    #無ければ、(ほぼ)空のファイルを作成する
+    f=open('otaku1.txt','w',encoding='UTF-8')
+    f.write('\n')
     f.close()
-    f = open("otaku1.txt","r")
+    
+f = open("otaku1.txt","r",encoding='UTF-8')
 
 for row in f:
     #row=row.encode('utf-8')
-    tag_array1.append(row.decode('utf-8'))
+    tag_array1.append(row)
     tag_array1.sort()
 
 f.close()
-if otaku2exist:
-    g = open("otaku2.txt","r")
-else:
-    g = open("otaku2.txt","w")
-    g.write("\n")
+
+if not otaku2exist:
+    #無ければ、(ほぼ)空のファイルを作成する
+    g = open('otaku2.txt','w',encoding='UTF-8')
+    g.write('\n')
     g.close()
-    g = open("otaku2.txt","r")
     
+g = open("otaku2.txt","r",encoding='UTF-8')
 
 for row in g:
     #row=row.encode('utf-8')
-    tag_array2.append(row.decode('utf-8'))
+    tag_array2.append(row)
 
 g.close()
 
@@ -126,11 +125,11 @@ def add1(event):
     print(NewTag)
     
     #ファイル書き込み
-    f = open( "otaku1.txt", "a" )
+    f = open( "otaku1.txt", "a",encoding='UTF-8' )
     try:
         
         # 文字列を追記
-        f.write( (u"\n"+NewTag).encode('utf-8') )
+        f.write( (u"\n"+NewTag) )
           
     finally:
         f.close()
@@ -148,12 +147,12 @@ def add2(event):
     print(NewTag)
 
     #ファイル書き込み
-    f = open( "otaku2.txt", "a" )
+    f = open( "otaku2.txt", "a",encoding='UTF-8' )
     #print type(add_)
     try:
         
         # 文字列を追記
-        f.write( (u"\n"+NewTag).encode('utf-8') )
+        f.write( (u"\n"+NewTag) )
           
     finally:
         f.close()
