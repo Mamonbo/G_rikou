@@ -23,3 +23,6 @@
    PILはpython 2にしか無いのでPillowを使います
 
    ~pip install pillow~
+* Usage
+** 注意
+   こちらの環境では eshell 上ではGUIが立ち上がらなかった
