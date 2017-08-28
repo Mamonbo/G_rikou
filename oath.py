@@ -40,10 +40,22 @@ def download(url):
 
     #python 3にてurllib の名前空間を整理した
     img = urllib.request.urlopen(url)
-    localfile = open( os.path.basename(url), 'wb')
+
+    # mastodon (maud.io のみ?) の場合 (なんとか).png の後に
+    # "?(うんたら)" が付くので、取り除く
+    hyo=url.split('?')
+    print(hyo)
+    # '?' の前まで
+    CleanUrl=hyo[0]
+    print("CleanUrl:" + CleanUrl)
+
+    filename=os.path.basename(CleanUrl)
+    localfile = open( filename, 'wb')
     localfile.write(img.read())
     img.close()
     localfile.close()
+    print("filename:" + filename)
+    return filename
 
 def geticon(access_key,access_secret):
     #otaku_client.py に同様の関数があった
