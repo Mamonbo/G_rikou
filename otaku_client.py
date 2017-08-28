@@ -197,6 +197,7 @@ def geticon():
     # Hint:例外処理をした方が良いかも
     iconname=oath.download(iconurl)
 
+    
     hyo=iconurl.split('?')
     CleanUrl=hyo[0]
     # 保存したファイルに合せた拡張子に変名する
@@ -209,9 +210,14 @@ def geticon():
     #既にファイルがある場合は削除する
     if os.path.exists('./'+SaveName):
         os.remove(SaveName)
+        
+    #リサイズ
+    gazo=Image.open(iconname,'r')
+    mini_gazo=gazo.resize((80,80),resample=1)
+    mini_gazo.save(SaveName)
 
-    os.rename(iconname,SaveName)
-    #os.remove(iconname)
+    #後始末
+    os.remove(iconname)
     return SaveName
 
 def reauth(event):
@@ -268,7 +274,7 @@ if __name__ == "__main__":
     combobox_1 = wx.ComboBox(choice_1_panel,wx.ID_ANY,u"タグ1",choices=tag_array1,style=wx.CB_DROPDOWN,size=(160,26))
     combobox_2 = wx.ComboBox(choice_2_panel,wx.ID_ANY,u"タグ2",choices=tag_array2,style=wx.CB_DROPDOWN,size=(160,26))
     image = wx.Image(iconname, wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    button_account = wx.StaticBitmap(frame, -1, image, pos=(278, 20),size=(80,80))
+    button_account = wx.StaticBitmap(frame, -1, image, pos=(278, 10),size=(80,80))
     button_reauth = wx.Button(frame,wx.ID_ANY,u"再認証",size=(80,20),pos=(265, 100))
     #-------------------------------layoutに追加---------------------------------------------------
     layout_toukou.Add(toukou,flag=wx.EXPAND)
