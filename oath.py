@@ -14,7 +14,7 @@ from PIL import Image
 
 
 #.rstrip("\n")
-sys.stdout = codecs.getwriter('utf_8')(sys.stdout)
+#sys.stdout = codecs.getwriter('utf_8')(sys.stdout)
 global Verifier
 consumer_key = "sAp1BJJIBuCqYhWsNWNGYjxsA"
 consumer_secret = "tRV0qeUEqYWq0yiGG43lcRmujunBaRFcbjuksuEU45gjkqzG5k"
