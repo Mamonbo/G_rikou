@@ -173,18 +173,18 @@ def geticon():
     me=mstdn_handler.account_verify_credentials()
     iconurl=me['avatar']
     
-    iconspl=iconurl.split("/")
-    # urlの一番最後のスラッシュの後が保存するファイル名になる
-    iconname=iconspl[-1]
+    
     # 付属の oath.py でダウンロードする
     # iconname 拡張子無しで保存される
     # Hint:例外処理をした方が良いかも
-    oath.download(iconurl)
+    iconname=oath.download(iconurl)
 
+    hyo=iconurl.split('?')
+    CleanUrl=hyo[0]
     # 保存したファイルに合せた拡張子に変名する
     # hoge.png.gif の様なファイル名にされている可能性があるので、
     # ライブラリに頼った方が良い
-    root, ext = os.path.splitext(iconurl)
+    root, ext = os.path.splitext(CleanUrl)
     #print ext
     SaveName='icon'+ext
 
