@@ -84,7 +84,7 @@ if __name__ == "__main__":
     #frame = wx.Frame(None,wx.ID_ANY,u"テストフレーム")
     frame = wx.Frame(None,wx.ID_ANY,u"グローバル理工丼",
                      style=wx.MINIMIZE_BOX | wx.SYSTEM_MENU | wx.CAPTION | wx.CLOSE_BOX
-                     | wx.CLIP_CHILDREN,size=(360,235))#デフォは横400、たて220ちょい
+                     | wx.CLIP_CHILDREN,size=(400,250))#デフォは横400、たて220ちょい
     # Hint:mastodonは暗めの背景が多めなのでそれ系の背景色にするかも
     frame.SetBackgroundColour("#e8e8e8")
     frame.CreateStatusBar()
@@ -244,13 +244,13 @@ if __name__ == "__main__":
     button_post = wx.Button(post_panel,wx.ID_ANY,"post",size=(80,20))
     button_add1 = wx.Button(add1_panel,wx.ID_ANY,u"タグ1追加",size=(160,20))
     button_add2 = wx.Button(add2_panel,wx.ID_ANY,u"タグ2追加",size=(160,20))
-    toukou = wx.TextCtrl(write_panel,wx.ID_ANY,style=wx.TE_MULTILINE,size=(270,80))
+    toukou = wx.TextCtrl(write_panel,wx.ID_ANY,style=wx.TE_MULTILINE,size=(250,80))
     checkbox = wx.CheckBox(check_panel,wx.ID_ANY,u"Enterキーで投稿する")
     checkbox.SetValue(True)
     combobox_1 = wx.ComboBox(choice_1_panel,wx.ID_ANY,u"タグ1",choices=tag_array1,style=wx.CB_DROPDOWN,size=(160,26))
     combobox_2 = wx.ComboBox(choice_2_panel,wx.ID_ANY,u"タグ2",choices=tag_array2,style=wx.CB_DROPDOWN,size=(160,26))
     image = wx.Image(iconname, wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-    button_account = wx.BitmapButton(frame, -1, image, pos=(278, 20))
+    button_account = wx.StaticBitmap(frame, -1, image, pos=(278, 20),size=(80,80))
     button_reauth = wx.Button(frame,wx.ID_ANY,u"再認証",size=(80,20),pos=(265, 100))
     #-------------------------------layoutに追加---------------------------------------------------
     layout_toukou.Add(toukou,flag=wx.EXPAND)
