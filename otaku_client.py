@@ -98,6 +98,13 @@ def post_event(event):
     tag1=combobox_1.GetValue()
     # tag2:テレビ局名を入れる欄
     tag2=combobox_2.GetValue()
+
+    if tag1[0] != "#":
+        tag1="#"+tag1
+
+    if tag2[0] != "#":
+        tag2="#"+tag2
+
     try:        
         mstdn_handler.toot(bun+" "+tag1.rstrip("\n") +" "+tag2)
     except:
@@ -125,7 +132,12 @@ def add1(event):
 
     NewTag=combobox_1.GetValue()#.GetValue()で現在のcomboboxの値を取得可
     #能
+    if NewTag[0] != "#":
+        NewTag='#'+NewTag
+        
     print(NewTag)
+    if NewTag in tag_array1:
+        return
     
     #ファイル書き込み
     f = open( "otaku1.txt", "a",encoding='UTF-8' )
@@ -147,8 +159,14 @@ def add2(event):
     #タグ2(テレビ局名)に現在入力してある文字列をプリセットに追加
     NewTag=combobox_2.GetValue()#.GetValue()で現在のcomboboxの値を取得
     #可能
+    if Newtag[0]!='#':
+        NewTag='#'+NewTag
+        
     print(NewTag)
 
+    if NewTag in tag_array2:
+        return
+    
     #ファイル書き込み
     f = open( "otaku2.txt", "a",encoding='UTF-8' )
     #print type(add_)
