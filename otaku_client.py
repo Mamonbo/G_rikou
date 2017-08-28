@@ -194,8 +194,7 @@ def geticon():
 
     os.rename(iconname,SaveName)
     #os.remove(iconname)
-    # Hint:返すのは拡張子付きのファイル名にした方が良いのでは
-    return ext
+    return SaveName
 
 def reauth(event):
     #再起動する
@@ -228,7 +227,8 @@ if __name__ == "__main__":
         
     frame.Bind(wx.EVT_CLOSE, ExitHandler)
 
-     
+
+    iconname=geticon()
 
     #--------------------------panel------------------------------------------------------
     write_panel = wx.Panel(frame,wx.ID_ANY,pos=(10,10),size=(250,80))
@@ -249,7 +249,7 @@ if __name__ == "__main__":
     checkbox.SetValue(True)
     combobox_1 = wx.ComboBox(choice_1_panel,wx.ID_ANY,u"タグ1",choices=tag_array1,style=wx.CB_DROPDOWN,size=(160,26))
     combobox_2 = wx.ComboBox(choice_2_panel,wx.ID_ANY,u"タグ2",choices=tag_array2,style=wx.CB_DROPDOWN,size=(160,26))
-    image = wx.Image("icon.png", wx.BITMAP_TYPE_PNG).ConvertToBitmap()
+    image = wx.Image(iconname, wx.BITMAP_TYPE_PNG).ConvertToBitmap()
     button_account = wx.BitmapButton(frame, -1, image, pos=(278, 20))
     button_reauth = wx.Button(frame,wx.ID_ANY,u"再認証",size=(80,20),pos=(265, 100))
     #-------------------------------layoutに追加---------------------------------------------------
