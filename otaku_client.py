@@ -15,7 +15,6 @@ import json
 
 
 # SOMEDAY 使用している場所を見て適切なファイル名に変更する
-#sys.stdout = codecs.getwriter("utf-8")(sys.stdout)
 otaku1exist=os.path.exists("./otaku1.txt")
 otaku2exist=os.path.exists("./otaku2.txt")
 
