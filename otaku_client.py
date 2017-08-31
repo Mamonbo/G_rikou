@@ -220,23 +220,6 @@ def geticon():
     os.remove(iconname)
     return SaveName
 
-def reauth(event):
-    #再起動する
-    os.remove("./access.txt")
-    #os.system("C:\Users\ymduu\Desktop\otaku_client_public\dist\otaku_client.exe")
-    #cd=os.getcwdu()
-    #os.system(cd+"\otaku_client.exe")
-    # PID 諸々を受け継いでコマンドを実行
-    os.execl('python','otaku_client.py','a')
-
-    #sys.exit()
-
-
-
-
-
-
-
 
 
 
@@ -256,7 +239,7 @@ if __name__ == "__main__":
 
     #--------------------------panel------------------------------------------------------
     write_panel = wx.Panel(frame,wx.ID_ANY,pos=(10,10),size=(250,80))
-    post_panel = wx.Panel(frame,wx.ID_ANY,pos=(180,100),size=(80,20))
+    post_panel = wx.Panel(frame,wx.ID_ANY,pos=(180,100),size=(160,20))
     add1_panel = wx.Panel(frame,wx.ID_ANY,pos=(15,160),size=(160,20))
     add2_panel = wx.Panel(frame,wx.ID_ANY,pos=(180,160),size=(160,20))
     check_panel = wx.Panel(frame,wx.ID_ANY,pos=(20,100),size=(150,20))
@@ -265,7 +248,7 @@ if __name__ == "__main__":
     add1_panel.SetBackgroundColour("#FF0000")
     add2_panel.SetBackgroundColour("#FF0000")
     #-------------------------------button他パーツ--------------------------------------------------
-    button_post = wx.Button(post_panel,wx.ID_ANY,"post",size=(80,20))
+    button_post = wx.Button(post_panel,wx.ID_ANY,"post",size=(160,20))
     button_add1 = wx.Button(add1_panel,wx.ID_ANY,u"タグ1追加",size=(160,20))
     button_add2 = wx.Button(add2_panel,wx.ID_ANY,u"タグ2追加",size=(160,20))
     toukou = wx.TextCtrl(write_panel,wx.ID_ANY,style=wx.TE_MULTILINE,size=(250,80))
@@ -275,7 +258,6 @@ if __name__ == "__main__":
     combobox_2 = wx.ComboBox(choice_2_panel,wx.ID_ANY,u"タグ2",choices=tag_array2,style=wx.CB_DROPDOWN,size=(160,26))
     image = wx.Image(iconname, wx.BITMAP_TYPE_PNG).ConvertToBitmap()
     button_account = wx.StaticBitmap(frame, -1, image, pos=(278, 10),size=(80,80))
-    button_reauth = wx.Button(frame,wx.ID_ANY,u"再認証",size=(80,20),pos=(265, 100))
     #-------------------------------layoutに追加---------------------------------------------------
     layout_toukou.Add(toukou,flag=wx.EXPAND)
     post_sizer.Add(button_post,flag=wx.GROW)
@@ -285,7 +267,7 @@ if __name__ == "__main__":
     button_add1.Bind(wx.EVT_BUTTON,add1)
     button_add2.Bind(wx.EVT_BUTTON,add2)
     toukou.Bind(wx.EVT_KEY_DOWN, OnKeyChar)
-    button_reauth.Bind(wx.EVT_BUTTON,reauth)
+
     
     #write_panel.SetSizer(layout_toukou)
     
