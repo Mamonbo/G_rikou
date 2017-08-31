@@ -1,18 +1,14 @@
 # -*- coding: utf-8 -*-
-#last update:2014/10/10
 
 #import tweepy
-import sys
-import codecs
+
 import os
-import webbrowser
-import wx
 import urllib
 import os.path
-from PIL import Image
 
 
-    
+
+
 def download(url):
     #url の画像をurlのbasename(拡張子無し)で保存する
 

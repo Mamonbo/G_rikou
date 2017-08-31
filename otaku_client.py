@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 #.split(',')
-#last update:2014/10/10
 
 import wx
 #import tweepy
