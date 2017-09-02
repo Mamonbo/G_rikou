@@ -65,6 +65,8 @@
 * Acknowledgements
 ** ymduu
    twitter 版グローバル理工兄弟の作者
-** 末代の人々(http://mstdn.maud.io)
+   [[https://github.com/ymduu][github]]
+   [[https://mobile.twitter.com/ymduu][twitter🔒]]
+** 末代の人々(https://mstdn.maud.io)
    mastodon に詳しい人たちが居たり、サーバ管理者との交流が盛んだったり
   
