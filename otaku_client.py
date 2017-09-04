@@ -242,23 +242,24 @@ if __name__ == "__main__":
         
     frame.Bind(wx.EVT_CLOSE, ExitHandler)
 
-
+    #iconname='test.png'
     iconname=geticon()
 
     #--------------------------panel------------------------------------------------------
     write_panel = wx.Panel(frame,wx.ID_ANY,pos=(10,10),size=(250,80))
-    post_panel = wx.Panel(frame,wx.ID_ANY,pos=(180,100),size=(160,20))
+    post_panel = wx.Panel(frame,wx.ID_ANY,pos=(260,100),size=(80,20))
     add1_panel = wx.Panel(frame,wx.ID_ANY,pos=(15,160),size=(160,20))
     add2_panel = wx.Panel(frame,wx.ID_ANY,pos=(180,160),size=(160,20))
-    check_panel = wx.Panel(frame,wx.ID_ANY,pos=(20,100),size=(150,20))
-    front_check_panel = wx.Panel(frame,wx.ID_ANY,pos=(20,120),size=(150,20))
+    
+    check_panel = wx.Panel(frame,wx.ID_ANY,pos=(20,100),size=(120,20))
+    front_check_panel = wx.Panel(frame,wx.ID_ANY,pos=(150,100),size=(150,20))
     
     choice_1_panel = wx.Panel(frame,wx.ID_ANY,pos=(15,130),size=(160,26))
     choice_2_panel = wx.Panel(frame,wx.ID_ANY,pos=(180,130),size=(160,26))
     add1_panel.SetBackgroundColour("#FF0000")
     add2_panel.SetBackgroundColour("#FF0000")
     #-------------------------------button他パーツ--------------------------------------------------
-    button_post = wx.Button(post_panel,wx.ID_ANY,"post",size=(160,20))
+    button_post = wx.Button(post_panel,wx.ID_ANY,"post",size=(80,20))
     button_add1 = wx.Button(add1_panel,wx.ID_ANY,u"タグ1追加",size=(160,20))
     button_add2 = wx.Button(add2_panel,wx.ID_ANY,u"タグ2追加",size=(160,20))
     toukou = wx.TextCtrl(write_panel,wx.ID_ANY,style=wx.TE_MULTILINE,size=(250,80))
