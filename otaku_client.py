@@ -82,7 +82,11 @@ if __name__ == "__main__":
     #frame = wx.Frame(None,wx.ID_ANY,u"テストフレーム")
     frame = wx.Frame(None,wx.ID_ANY,u"グローバル理工丼",
                      style=wx.MINIMIZE_BOX | wx.SYSTEM_MENU | wx.CAPTION | wx.CLOSE_BOX
-                     | wx.CLIP_CHILDREN,size=(400,250))#デフォは横400、たて220ちょい
+                     | wx.STAY_ON_TOP
+                     #デフォは横400、たて220ちょい
+                     | wx.CLIP_CHILDREN,size=(400,250)
+    )
+
     # Hint:mastodonは暗めの背景が多めなのでそれ系の背景色にするかも
     frame.SetBackgroundColour("#e8e8e8")
     frame.CreateStatusBar()
