@@ -125,7 +125,8 @@ def OnKeyChar(event):
     #("Enterキーで投稿する" のチェックが付いているときのみ)
     if key  ==  wx.WXK_RETURN and checkbox.GetValue():
         post_event(event)
-
+    elif key == wx.WXK_F1:
+        frame.SetWindowStyleFlag(style= frame.GetWindowStyleFlag() ^ wx.STAY_ON_TOP)
     else: event.Skip()
 
 
