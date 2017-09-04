@@ -82,7 +82,6 @@ if __name__ == "__main__":
     #frame = wx.Frame(None,wx.ID_ANY,u"テストフレーム")
     frame = wx.Frame(None,wx.ID_ANY,u"グローバル理工丼",
                      style=wx.MINIMIZE_BOX | wx.SYSTEM_MENU | wx.CAPTION | wx.CLOSE_BOX
-                     | wx.STAY_ON_TOP
                      #デフォは横400、たて220ちょい
                      | wx.CLIP_CHILDREN,size=(400,250)
     )
@@ -125,10 +124,16 @@ def OnKeyChar(event):
     #("Enterキーで投稿する" のチェックが付いているときのみ)
     if key  ==  wx.WXK_RETURN and checkbox.GetValue():
         post_event(event)
-    elif key == wx.WXK_F1:
-        frame.SetWindowStyleFlag(style= frame.GetWindowStyleFlag() ^ wx.STAY_ON_TOP)
     else: event.Skip()
 
+def OnCheckbox(event):
+    #print(front_checkbox.GetValue())
+    if front_checkbox.GetValue() :
+        frame.SetWindowStyleFlag(style= frame.GetWindowStyleFlag() |
+                                 wx.STAY_ON_TOP)
+    else:
+        frame.SetWindowStyleFlag(style= frame.GetWindowStyleFlag() &
+                                 (~ wx.STAY_ON_TOP))
 
 def add1(event):
     #タグ1(番組名)に現在入力してある文字列をプリセットに追加
@@ -246,6 +251,8 @@ if __name__ == "__main__":
     add1_panel = wx.Panel(frame,wx.ID_ANY,pos=(15,160),size=(160,20))
     add2_panel = wx.Panel(frame,wx.ID_ANY,pos=(180,160),size=(160,20))
     check_panel = wx.Panel(frame,wx.ID_ANY,pos=(20,100),size=(150,20))
+    front_check_panel = wx.Panel(frame,wx.ID_ANY,pos=(20,120),size=(150,20))
+    
     choice_1_panel = wx.Panel(frame,wx.ID_ANY,pos=(15,130),size=(160,26))
     choice_2_panel = wx.Panel(frame,wx.ID_ANY,pos=(180,130),size=(160,26))
     add1_panel.SetBackgroundColour("#FF0000")
@@ -257,6 +264,9 @@ if __name__ == "__main__":
     toukou = wx.TextCtrl(write_panel,wx.ID_ANY,style=wx.TE_MULTILINE,size=(250,80))
     checkbox = wx.CheckBox(check_panel,wx.ID_ANY,u"Enterキーで投稿する")
     checkbox.SetValue(True)
+    front_checkbox = wx.CheckBox(front_check_panel,wx.ID_ANY,
+                                 u"常に手前に表示")
+    front_checkbox.SetValue(False)
     combobox_1 = wx.ComboBox(choice_1_panel,wx.ID_ANY,u"タグ1",choices=tag_array1,style=wx.CB_DROPDOWN,size=(160,26))
     combobox_2 = wx.ComboBox(choice_2_panel,wx.ID_ANY,u"タグ2",choices=tag_array2,style=wx.CB_DROPDOWN,size=(160,26))
     image = wx.Image(iconname, wx.BITMAP_TYPE_PNG).ConvertToBitmap()
@@ -271,7 +281,7 @@ if __name__ == "__main__":
     button_add2.Bind(wx.EVT_BUTTON,add2)
     toukou.Bind(wx.EVT_KEY_DOWN, OnKeyChar)
 
-    
+    front_checkbox.Bind(wx.EVT_CHECKBOX,OnCheckbox)
     #write_panel.SetSizer(layout_toukou)
     
 
