@@ -96,21 +96,28 @@ def post_event(event):
     # toot する
     bun=toukou.GetValue()
     # tag1:番組名を入れる欄
-    tag1=combobox_1.GetValue()
+    tag1=combobox_1.GetValue().rstrip()
     # tag2:テレビ局名を入れる欄
-    tag2=combobox_2.GetValue()
+    tag2=combobox_2.GetValue().rstrip()
 
-    if tag1[0] != "#":
-        tag1="#"+tag1
+    #print('tag1:'+tag1)
+    #print('tag1.length:'+str(len(tag1)))
+    #print('tag2.length:'+str(len(tag2)))
 
-    if tag2[0] != "#":
-        tag2="#"+tag2
+    if len(tag1) != 0:
+        if tag1[0] != "#":
+            tag1="#"+tag1
+        tag1=' '+tag1
+
+    if len(tag2) != 0:
+        if tag2[0] != "#":
+            tag2="#"+tag2
+        tag2=' '+tag2
 
     try:        
-        mstdn_handler.toot(bun+" "+tag1.rstrip("\n") +" "+tag2)
+        mstdn_handler.toot(bun+tag1+tag2)
     except:
-        frame.SetStatusText(u"投稿失敗:"+bun+" "+tag1.rstrip("\n") + \
-                            " "+tag2)
+        frame.SetStatusText(u"投稿失敗:"+bun+tag1+tag2)
     else:
         #上手くいったら
         #テキストボックスを空にして次の投稿に備える
